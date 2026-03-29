@@ -9,8 +9,8 @@
   --color-light-grey: #f3f3f3;
   --color-dark-grey: #353535;
   --text-color: var(--color-black);
-  --font-family-base: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-family-title: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family-base: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-family-title: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-size-small: 1.2rem;
   --font-size-medium: 1.6rem;
   --font-size-large: 1.8rem;
@@ -38,7 +38,6 @@
   --nav-item-letter-spacing: 0.04rem;
   --nav-item-display: inline-block;
   --nav-item-margin: 0 0 3rem 0;
-  /* TASK 29: Update hover color to white */
   --nav-item-link-hover: var(--color-white);
   --button-display: inline-block;
   --button-padding: 1.5rem 3rem;
@@ -62,7 +61,6 @@
   box-sizing: border-box;
 }
 
-/* Base Styles */
 html {
   scroll-behavior: smooth;
   font-size: 62.5%;
@@ -76,7 +74,6 @@ body {
   line-height: var(--line-height-base);
 }
 
-/* Links */
 a[href] {
   color: var(--text-color);
   text-decoration: none;
@@ -85,7 +82,6 @@ a[href]:visited { font-style: italic; }
 a[href]:hover { text-decoration: underline; }
 a[href]:active { background-color: var(--color-light-grey); }
 
-/* 25. Button Class */
 .button {
   display: var(--button-display);
   padding: var(--button-padding);
@@ -100,7 +96,6 @@ a[href]:active { background-color: var(--color-light-grey); }
   background-color: var(--button-hover-background);
 }
 
-/* 28. Header & Logo */
 .header {
   padding: var(--header-padding);
 }
@@ -114,7 +109,6 @@ a[href]:active { background-color: var(--color-light-grey); }
   left: var(--header-logo-link-left);
 }
 
-/* 18 & 29. Navbar - BU HİSSƏYƏ DİQQƏT */
 .navbar-menu {
   float: right;
 }
@@ -141,7 +135,8 @@ nav .nav-link {
   position: relative;
 }
 
-/* Task 29: before pseudo-elements */
+/* 29. Styling and custom properties for the nav */
+/* Target BEFORE pseudo-element inside nav-link */
 nav .nav-link::before {
   content: "";
   position: absolute;
@@ -151,43 +146,3 @@ nav .nav-link::before {
   width: 0;
   height: 0.2rem;
 }
-
-/* Task 29: hover foreground color */
-nav .nav-link:hover {
-  color: var(--nav-item-link-hover);
-}
-
-/* Task 29: hover state for before pseudo-element */
-nav .nav-item:hover .nav-link::before {
-  background-color: var(--color-primary);
-  width: 100%;
-}
-
-/* Container & Layout */
-.container { width: 960px; margin-left: auto; margin-right: auto; }
-.visually-hidden { display: none; }
-.card-category { color: var(--color-primary); }
-.section { padding: var(--section-padding); }
-.section-header { text-align: var(--section-header-align); padding: var(--section-header-padding); }
-.section-title { font-family: var(--font-family-title); font-size: var(--font-size-xx-large); margin: var(--section-title-margin); color: var(--section-title-color); }
-.section-tagline { color: var(--color-primary); font-family: var(--font-family-title); text-transform: var(--section-tagline-transform); margin: var(--section-tagline-margin); }
-
-/* Grid System */
-.row::after { content: ""; display: table; clear: both; }
-[class*='col-'] { float: left; padding: 0.5rem; }
-.col-1-3 { width: 33.33%; }
-.col-1-2 { width: 50%; }
-
-/* Themes */
-[data-section-theme="dark"] {
-  --text-color: var(--color-white);
-  --section-title-color: var(--color-white);
-  --button-color: var(--color-white);
-  background-color: var(--color-black);
-}
-
-.footer { padding: var(--footer-padding); }
-.footer-copyright { margin: 0; font-size: var(--font-size-small); color: var(--text-color); }
-.footer ul { text-align: right; }
-.social-link { display: block; }
-.social-link svg { fill: var(--text-color); }
