@@ -1,0 +1,114 @@
+/* 7. Google Fonts inteqrasiyası */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@700&display=swap');
+
+/* 3, 4, 5, 6, 8, 10, 11, 12. Dəyişənlərin (Custom Properties) təyini */
+:root {
+  /* Rəng dəyişənləri */
+  --color-primary: #d73953;
+  --color-black: #090909;
+  --color-white: #ffffff;
+  --color-light-grey: #f3f3f3;
+  --color-dark-grey: #353535;
+  --text-color: var(--color-black);
+
+  /* Şrift ailələri */
+  --font-family-base: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family-title: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Şrift ölçüləri */
+  --font-size-small: 1.2rem;
+  --font-size-medium: 1.6rem;
+  --font-size-large: 1.8rem;
+  --font-size-x-large: 2.3rem;
+  --font-size-xx-large: 4.8rem;
+
+  /* Şrift qalınlığı */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Sətir hündürlüyü */
+  --line-height-small: 1.2;
+  --line-height-base: 1.5;
+  --line-height-big: 1.8;
+
+  /* Bölmə başlıqlarının və tagline-ın tənzimlənməsi */
+  --section-header-align: center;
+  --section-tagline-transform: uppercase;
+  --section-title-margin: 0;
+  --section-title-color: var(--color-black);
+}
+
+/* 15. Universal box-sizing qaydası */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* 1 & 5. HTML elementləri üçün əsas stillər */
+html {
+  scroll-behavior: smooth; /* 1. Rahat sürüşmə effekti */
+  font-size: 62.5%; /* 5. REM hesablamaları üçün əsas (10px) */
+}
+
+/* 2, 4, 6, 8. Body elementinin stilləri */
+body {
+  color: var(--text-color); /* */
+  font-family: var(--font-family-base); /* */
+  font-size: var(--font-size-medium); /* */
+  font-weight: var(--font-weight-regular); /* */
+  line-height: var(--line-height-base); /* */
+}
+
+/* 2, 9 & 13. Linklər və onların vəziyyətləri (Pseudo-classes) */
+a[href] {
+  color: var(--text-color); /* */
+  text-decoration: none; /* 9. Altdan xətti silirik */
+}
+
+a[href]:visited {
+  font-style: italic; /* 13. Ziyarət olunmuş linklər maili olur */
+}
+
+a[href]:hover {
+  text-decoration: underline; /* 13. Üzərinə gələndə xətt görünür */
+}
+
+a[href]:active {
+  background-color: var(--color-light-grey); /* 13. Klikləyəndə fon rəngi dəyişir */
+}
+
+/* 2. Köməkçi klaslar */
+.visually-hidden {
+  display: none; /* */
+}
+
+.card-category {
+  color: var(--color-primary); /* */
+}
+
+/* 10. Bölmə başlığı mərkəzləşdirmə */
+.section-header {
+  text-align: var(--section-header-align); /* */
+}
+
+/* 12. Əsas bölmə başlığı */
+.section-title {
+  font-family: var(--font-family-title); /* */
+  font-size: var(--font-size-xx-large); /* */
+  font-weight: var(--font-weight-bold); /* */
+  margin: var(--section-title-margin); /* */
+  color: var(--section-title-color); /* */
+}
+
+/* 2 & 11. Bölmənin tagline (alt başlıq) mətni */
+.section-tagline {
+  color: var(--color-primary); /* */
+  font-family: var(--font-family-title); /* */
+  text-transform: var(--section-tagline-transform); /* */
+  font-weight: var(--font-weight-bold); /* */
+}
+
+/* 4 & 6. Bütün başlıq teqləri üçün ümumi şrift ayarları */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-title); /* */
+  font-weight: var(--font-weight-bold); /* */
+}
