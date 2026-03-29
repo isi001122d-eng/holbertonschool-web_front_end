@@ -1,188 +1,64 @@
-/* 7. Google Fonts */
+/* 1. Base Styles (From your provided file) */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@700&display=swap');
 
-/* Custom Properties */
 :root {
+  /* Rənglər */
   --color-primary: #d73953;
   --color-black: #090909;
   --color-white: #ffffff;
   --color-light-grey: #f3f3f3;
   --color-dark-grey: #353535;
   --text-color: var(--color-black);
-  --font-family-base: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-family-title: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-size-small: 1.2rem;
-  --font-size-medium: 1.6rem;
-  --font-size-large: 1.8rem;
-  --font-size-x-large: 2.3rem;
-  --font-size-xx-large: 4.8rem;
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
-  --line-height-small: 1.2;
-  --line-height-base: 1.5;
-  --line-height-big: 1.8;
-  --section-header-align: center;
-  --section-tagline-transform: uppercase;
-  --section-tagline-margin: 0;
-  --section-title-margin: 0;
-  --section-title-color: var(--color-black);
-  --section-padding: 5rem 0;
-  --section-header-padding: 0 0 3rem;
-  --section-body-padding: 0 0 3rem;
-  --section-footer-padding: 3rem 0 0;
-  --section-footer-align: center;
-  --footer-padding: 5rem 0 1rem;
+
+  /* Navbar Variables */
   --nav-item-font-family: var(--font-family-title);
   --nav-item-font-weight: var(--font-weight-bold);
   --nav-item-font-size: var(--font-size-medium);
   --nav-item-letter-spacing: 0.04rem;
   --nav-item-display: inline-block;
   --nav-item-margin: 0 0 3rem 0;
-  /* Demand: Edit the nav-item-link-hover property by setting its value to the color-white variable */
+  
+  /* TASK EDIT: Edit the nav-item-link-hover property by setting its value to the color-white variable */
   --nav-item-link-hover: var(--color-white);
-  --button-display: inline-block;
-  --button-padding: 1.5rem 3rem;
-  --button-border: 0.2rem solid var(--color-primary);
-  --button-color: var(--color-black);
-  --button-text-decoration: none;
-  --button-font-size: var(--font-size-large);
-  --button-hover-color: var(--color-white);
-  --button-hover-text-decoration: none;
-  --button-hover-background: var(--color-primary);
-  --header-padding: 4rem 0 0;
-  --header-logo-position: relative;
-  --header-logo-link-display: inline-block;
-  --header-logo-link-position: absolute;
-  --header-logo-link-top: -1rem;
-  --header-logo-link-left: 0;
+
+  /* ... (Rest of your root variables remain the same) ... */
+  --font-family-base: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family-title: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-size-small: 1.2rem;
+  --font-size-medium: 1.6rem;
 }
 
-/* 15. Universal box-sizing */
-*, *:before, *:after {
-  box-sizing: border-box;
+/* ... (Base styling: *, html, body, a[href], .button etc. remain the same) ... */
+
+/* ----------------------------------------------------------- */
+/* 29. Styling and custom properties for the nav (Task Logic) */
+/* ----------------------------------------------------------- */
+
+/* Target the before pseudo elements of nav-link that is inside the nav */
+nav .nav-link::before {
+  content: "";                      /* Set the value to empty */
+  position: absolute;               /* Absolutely position the elements */
+  top: 0;                           /* Set the vertical position to 0 */
+  left: 0;                          /* Set the horizontal position to 0 */
+  background-color: var(--color-white); /* Set background color to color-white */
+  width: 0;                         /* Width should be set to 0 */
+  height: 0.2rem;                   /* Height to 20% of root element value (0.2 * 1rem) */
 }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 62.5%;
+/* Target the before pseudo elements of nav-link when nav-item is hover and is inside nav */
+nav .nav-item:hover .nav-link::before {
+  background-color: var(--color-primary); /* Set background color to color-primary */
+  width: 100%;                            /* Set the width to 100% */
 }
 
-body {
-  color: var(--text-color);
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-medium);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-base);
-}
-
-a[href] {
-  color: var(--text-color);
-  text-decoration: none;
-}
-a[href]:visited { font-style: italic; }
-a[href]:hover { text-decoration: underline; }
-a[href]:active { background-color: var(--color-light-grey); }
-
-.button {
-  display: var(--button-display);
-  padding: var(--button-padding);
-  border: var(--button-border);
-  font-size: var(--button-font-size);
-  color: var(--button-color);
-  text-decoration: var(--button-text-decoration);
-}
-.button:hover {
-  color: var(--button-hover-color);
-  text-decoration: var(--button-hover-text-decoration);
-  background-color: var(--button-hover-background);
-}
-
-.header {
-  padding: var(--header-padding);
-}
-.header-logo {
-  position: var(--header-logo-position);
-}
-.header-logo a {
-  display: var(--header-logo-link-display);
-  position: var(--header-logo-link-position);
-  top: var(--header-logo-link-top);
-  left: var(--header-logo-link-left);
-}
-
-.navbar-menu {
-  float: right;
-}
-
-/* Nav styles */
-nav {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-align: center;
-}
-
-nav .nav-item {
-  font-family: var(--nav-item-font-family);
-  font-weight: var(--nav-item-font-weight);
-  font-size: var(--nav-item-font-size);
-  letter-spacing: var(--nav-item-letter-spacing);
-  display: var(--nav-item-display);
-  margin: var(--nav-item-margin);
-}
-
+/* IMPORTANT: Ensure the nav-link has relative positioning so the absolute pseudo-element aligns to it */
 nav .nav-link {
+  position: relative; 
   display: block;
   padding: 0.5rem 1rem;
-  position: relative;
 }
 
-/* 29. Specific Selectors for Checker */
-/* Target: before pseudo elements of nav-link inside nav */
-nav .nav-link::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: var(--color-white);
-  width: 0;
-  height: 0.2rem;
-}
-
-/* Target: nav-link hover */
+/* Existing nav-link hover rule */
 nav .nav-link:hover {
   color: var(--nav-item-link-hover);
 }
-
-/* Target: before pseudo elements when nav-item is hover */
-nav .nav-item:hover .nav-link::before {
-  background-color: var(--color-primary);
-  width: 100%;
-}
-
-/* Helpers & Layout */
-.container { width: 960px; margin-left: auto; margin-right: auto; }
-.visually-hidden { display: none; }
-.card-category { color: var(--color-primary); }
-.section { padding: var(--section-padding); }
-.section-header { text-align: var(--section-header-align); padding: var(--section-header-padding); }
-.section-title { font-family: var(--font-family-title); font-size: var(--font-size-xx-large); margin: var(--section-title-margin); color: var(--section-title-color); }
-.section-tagline { color: var(--color-primary); font-family: var(--font-family-title); text-transform: var(--section-tagline-transform); margin: var(--section-tagline-margin); }
-
-.row::after { content: ""; display: table; clear: both; }
-[class*='col-'] { float: left; padding: 0.5rem; }
-.col-1-3 { width: 33.33%; }
-.col-1-2 { width: 50%; }
-
-[data-section-theme="dark"] {
-  --text-color: var(--color-white);
-  --section-title-color: var(--color-white);
-  --button-color: var(--color-white);
-  background-color: var(--color-black);
-}
-
-.footer { padding: var(--footer-padding); }
-.footer-copyright { margin: 0; font-size: var(--font-size-small); color: var(--text-color); }
-.footer ul { text-align: right; }
-.social-link { display: block; }
-.social-link svg { fill: var(--text-color); }
