@@ -9,45 +9,37 @@
   --color-light-grey: #f3f3f3;
   --color-dark-grey: #353535;
   --text-color: var(--color-black);
-
   --font-family-base: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-family-title: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
   --font-size-small: 1.2rem;
   --font-size-medium: 1.6rem;
   --font-size-large: 1.8rem;
   --font-size-x-large: 2.3rem;
   --font-size-xx-large: 4.8rem;
-
   --font-weight-regular: 400;
   --font-weight-bold: 700;
-
   --line-height-small: 1.2;
   --line-height-base: 1.5;
   --line-height-big: 1.8;
-
   --section-header-align: center;
   --section-tagline-transform: uppercase;
   --section-tagline-margin: 0;
   --section-title-margin: 0;
   --section-title-color: var(--color-black);
-
   --section-padding: 5rem 0;
   --section-header-padding: 0 0 3rem;
   --section-body-padding: 0 0 3rem;
   --section-footer-padding: 3rem 0 0;
   --section-footer-align: center;
   --footer-padding: 5rem 0 1rem;
-
   --nav-item-font-family: var(--font-family-title);
   --nav-item-font-weight: var(--font-weight-bold);
   --nav-item-font-size: var(--font-size-medium);
   --nav-item-letter-spacing: 0.04rem;
   --nav-item-display: inline-block;
   --nav-item-margin: 0 0 3rem 0;
-  /* Demand: Edit the nav-item-link-hover property by setting its value to the color-white variable */
+  /* TASK 29: Update hover color to white */
   --nav-item-link-hover: var(--color-white);
-
   --button-display: inline-block;
   --button-padding: 1.5rem 3rem;
   --button-border: 0.2rem solid var(--color-primary);
@@ -57,7 +49,6 @@
   --button-hover-color: var(--color-white);
   --button-hover-text-decoration: none;
   --button-hover-background: var(--color-primary);
-
   --header-padding: 4rem 0 0;
   --header-logo-position: relative;
   --header-logo-link-display: inline-block;
@@ -123,7 +114,7 @@ a[href]:active { background-color: var(--color-light-grey); }
   left: var(--header-logo-link-left);
 }
 
-/* 18 & 29. Navbar */
+/* 18 & 29. Navbar - BU HİSSƏYƏ DİQQƏT */
 .navbar-menu {
   float: right;
 }
@@ -150,34 +141,32 @@ nav .nav-link {
   position: relative;
 }
 
-/* Demand: Target the before pseudo elements of nav-link that is inside the nav */
+/* Task 29: before pseudo-elements */
 nav .nav-link::before {
-  content: ""; /* Set the values of these elements to empty using content */
-  position: absolute; /* Absolutely position the targeted elements */
-  top: 0; /* Set the vertical position to 0 */
-  left: 0; /* The horizontal position of the targeted elements should be 0 */
-  background-color: var(--color-white); /* Set the color of the background color of the targeted elements to the value color-white */
-  width: 0; /* The width of the targeted elements should be set to 0 */
-  height: 0.2rem; /* Set the height to 20% of the root element value (10px * 0.2 = 2px) */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-white);
+  width: 0;
+  height: 0.2rem;
 }
 
-/* Demand: While hovering over the nav-link class in nav class, set their foreground color value to nav-item-link-hover */
+/* Task 29: hover foreground color */
 nav .nav-link:hover {
   color: var(--nav-item-link-hover);
 }
 
-/* Demand: Target the before pseudo elements of nav-link when nav-item is hover and is inside nav */
+/* Task 29: hover state for before pseudo-element */
 nav .nav-item:hover .nav-link::before {
-  background-color: var(--color-primary); /* Set the background color of the elements to the variable color-primary */
-  width: 100%; /* Set the width of the elements to 100% */
+  background-color: var(--color-primary);
+  width: 100%;
 }
 
-/* Container & Helpers */
+/* Container & Layout */
 .container { width: 960px; margin-left: auto; margin-right: auto; }
 .visually-hidden { display: none; }
 .card-category { color: var(--color-primary); }
-
-/* Section Layout */
 .section { padding: var(--section-padding); }
 .section-header { text-align: var(--section-header-align); padding: var(--section-header-padding); }
 .section-title { font-family: var(--font-family-title); font-size: var(--font-size-xx-large); margin: var(--section-title-margin); color: var(--section-title-color); }
@@ -189,7 +178,7 @@ nav .nav-item:hover .nav-link::before {
 .col-1-3 { width: 33.33%; }
 .col-1-2 { width: 50%; }
 
-/* Dark Theme */
+/* Themes */
 [data-section-theme="dark"] {
   --text-color: var(--color-white);
   --section-title-color: var(--color-white);
@@ -197,12 +186,8 @@ nav .nav-item:hover .nav-link::before {
   background-color: var(--color-black);
 }
 
-/* Footer Address & Social links */
-.footer-address { color: var(--text-color); }
-.social-link { display: block; }
-.social-link svg { fill: var(--text-color); }
-
-/* Footer */
 .footer { padding: var(--footer-padding); }
 .footer-copyright { margin: 0; font-size: var(--font-size-small); color: var(--text-color); }
 .footer ul { text-align: right; }
+.social-link { display: block; }
+.social-link svg { fill: var(--text-color); }
