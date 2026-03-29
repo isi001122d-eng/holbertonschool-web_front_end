@@ -1,0 +1,29 @@
+/* Əvvəlki tapşırıqdan gələn hissə */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 1. Body üçün rəng */
+body {
+  color: #161616;
+}
+
+/* 2. Bütün anchor (a) elementləri üçün rəng */
+a {
+  color: #161616;
+}
+
+/* 3. .visually-hidden klası olanları gizlət */
+.visually-hidden {
+  display: none;
+}
+
+/* 4. .card-category klası üçün rəng */
+.card-category {
+  color: #D73953;
+}
+
+/* 5. .section-tagline klası üçün rəng */
+.section-tagline {
+  color: #D73953;
+}
