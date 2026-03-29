@@ -1,1 +1,185 @@
+/* 7. Integrating Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@700&display=swap');
 
+/* 3, 4, 5, 6, 8, 10, 11, 12, 17, 18. Custom Properties (Variables) */
+:root {
+  /* Colors */
+  --color-primary: #d73953;
+  --color-black: #090909;
+  --color-white: #ffffff;
+  --color-light-grey: #f3f3f3;
+  --color-dark-grey: #353535;
+  --text-color: var(--color-black);
+
+  /* Font Families */
+  --font-family-base: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family-title: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Font Sizes */
+  --font-size-small: 1.2rem;
+  --font-size-medium: 1.6rem;
+  --font-size-large: 1.8rem;
+  --font-size-x-large: 2.3rem;
+  --font-size-xx-large: 4.8rem;
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Line Heights */
+  --line-height-small: 1.2;
+  --line-height-base: 1.5;
+  --line-height-big: 1.8;
+
+  /* Section Styling */
+  --section-header-align: center;
+  --section-tagline-transform: uppercase;
+  --section-title-margin: 0;
+  --section-title-color: var(--color-black);
+  --section-padding: 5rem 0;
+  --section-header-padding: 0 0 3rem;
+  --section-body-padding: 0 0 3rem;
+  --section-footer-padding: 3rem 0 0;
+  --section-footer-align: center;
+  --footer-padding: 5rem 0 1rem;
+
+  /* 18. Navbar Custom Properties */
+  --nav-item-font-family: var(--font-family-title);
+  --nav-item-font-weight: var(--font-weight-bold);
+  --nav-item-font-size: var(--font-size-medium);
+  --nav-item-letter-spacing: 0.04rem; /* 4% of root element (10px * 0.04) */
+  --nav-item-display: inline-block;
+  --nav-item-margin: 0 0 3rem 0; /* 3 times root element (3rem) on bottom */
+  --nav-item-link-hover: var(--color-primary);
+}
+
+/* 15. Universal Box-sizing */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* 1, 5. HTML Base Styles */
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+/* 2, 4, 6, 8. Body Styles */
+body {
+  color: var(--text-color);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+}
+
+/* 2, 9, 13. Anchor/Link Styles */
+a[href] {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+a[href]:visited {
+  font-style: italic;
+}
+
+a[href]:hover {
+  text-decoration: underline;
+}
+
+a[href]:active {
+  background-color: var(--color-light-grey);
+}
+
+/* 2. Helpers */
+.visually-hidden {
+  display: none;
+}
+
+.card-category {
+  color: var(--color-primary);
+}
+
+/* 17. Section Layout */
+.section {
+  padding: var(--section-padding);
+}
+
+.section-header {
+  text-align: var(--section-header-align);
+  padding: var(--section-header-padding);
+}
+
+.section-body {
+  padding: var(--section-body-padding);
+}
+
+.section-footer {
+  padding: var(--section-footer-padding);
+  text-align: var(--section-footer-align);
+}
+
+/* 11. Section Tagline */
+.section-tagline {
+  color: var(--color-primary);
+  font-family: var(--font-family-title);
+  text-transform: var(--section-tagline-transform);
+  font-weight: var(--font-weight-bold);
+}
+
+/* 12. Section Title */
+.section-title {
+  font-family: var(--font-family-title);
+  font-size: var(--font-size-xx-large);
+  font-weight: var(--font-weight-bold);
+  margin: var(--section-title-margin);
+  color: var(--section-title-color);
+}
+
+/* 16. Container */
+.container {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 4, 6. Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-bold);
+}
+
+/* 18. Navbar Styles */
+.navbar-menu {
+  float: right;
+}
+
+nav {
+  margin: 0;
+  padding: 0;
+  list-style: none; /* No styling on list */
+  text-align: center;
+}
+
+nav .nav-item {
+  font-family: var(--nav-item-font-family);
+  font-weight: var(--nav-item-font-weight);
+  font-size: var(--nav-item-font-size);
+  letter-spacing: var(--nav-item-letter-spacing);
+  display: var(--nav-item-display);
+  margin: var(--nav-item-margin);
+}
+
+nav .nav-link {
+  display: block;
+  padding: 0.5rem 1rem; /* Half of root (0.5rem) top/bottom, equal (1rem) left/right */
+}
+
+nav .nav-link:hover {
+  color: var(--nav-item-link-hover);
+}
+
+/* 17. Footer */
+.footer {
+  padding: var(--footer-padding);
+}
