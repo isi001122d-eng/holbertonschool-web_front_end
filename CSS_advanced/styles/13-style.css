@@ -1,0 +1,55 @@
+/* 1. Google Fonts inteqrasiyası (Tapşırıq 7) */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@700&display=swap');
+
+/* 2. Dəyişənlərin təyini (Tapşırıq 3, 4, 5, 6, 8, 10, 11, 12) */
+:root {
+  /* Rənglər */
+  --color-primary: #d73953;
+  --color-black: #090909;
+  --color-white: #ffffff;
+  --color-light-grey: #f3f3f3;
+  --color-dark-grey: #353535;
+  --text-color: var(--color-black);
+
+  /* Şrift ailələri */
+  --font-family-base: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family-title: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Şrift ölçüləri */
+  --font-size-small: 1.2rem;
+  --font-size-medium: 1.6rem;
+  --font-size-large: 1.8rem;
+  --font-size-x-large: 2.3rem;
+  --font-size-xx-large: 4.8rem;
+
+  /* Şrift qalınlığı */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Sətir hündürlüyü */
+  --line-height-small: 1.2;
+  --line-height-base: 1.5;
+  --line-height-big: 1.8;
+
+  /* Bölmə xüsusiyyətləri */
+  --section-header-align: center;
+  --section-tagline-transform: uppercase;
+  --section-title-margin: 0;
+  --section-title-color: var(--color-black);
+}
+
+/* 3. Base Styles (Tapşırıq 1, 5, 6, 8) */
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%; /* 10px emulyasiyası üçün */
+}
+
+body {
+  color: var(--text-color);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+}
+
+/* 4. Links & Pseudo-classes (Tapşırıq 2, 9,
