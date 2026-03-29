@@ -1,0 +1,36 @@
+/* 1. Root elementində dəyişənlərin təyin edilməsi */
+:root {
+  --color-primary: #d73953;
+  --color-black: #090909;
+  --color-white: #ffffff;
+  --color-light-grey: #f3f3f3;
+  --color-dark-grey: #353535;
+  --text-color: var(--color-black);
+}
+
+/* Əvvəlki tapşırıqlardan gələn və yenilənən hissələr */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 2. Body və Anchor rənglərini text-color dəyişəni ilə əvəz et */
+body {
+  color: var(--text-color);
+}
+
+a {
+  color: var(--text-color);
+}
+
+.visually-hidden {
+  display: none;
+}
+
+/* 3. Bu klasların rəngini color-primary dəyişəni ilə əvəz et */
+.card-category {
+  color: var(--color-primary);
+}
+
+.section-tagline {
+  color: var(--color-primary);
+}
