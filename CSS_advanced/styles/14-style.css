@@ -1,0 +1,117 @@
+/* 14. Resetting the CSS stylesheet for browser consistency
+   Normalize.css-in əsasını bura daxil edirik (və ya link olaraq təsəvvür edilir)
+*/
+
+/* 7. Google Fonts inteqrasiyası */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@700&display=swap');
+
+/* Dəyişənlərin (Custom Properties) təyini */
+:root {
+  /* 3. Rəng dəyişənləri */
+  --color-primary: #d73953;
+  --color-black: #090909;
+  --color-white: #ffffff;
+  --color-light-grey: #f3f3f3;
+  --color-dark-grey: #353535;
+  --text-color: var(--color-black);
+
+  /* 4 & 7. Şrift ailələri */
+  --font-family-base: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family-title: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* 5. Şrift ölçüləri */
+  --font-size-small: 1.2rem;
+  --font-size-medium: 1.6rem;
+  --font-size-large: 1.8rem;
+  --font-size-x-large: 2.3rem;
+  --font-size-xx-large: 4.8rem;
+
+  /* 6. Şrift qalınlığı */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* 8. Sətir hündürlüyü */
+  --line-height-small: 1.2;
+  --line-height-base: 1.5;
+  --line-height-big: 1.8;
+
+  /* 10. Başlıqların hizalanması */
+  --section-header-align: center;
+
+  /* 11. Tagline transformasiyası */
+  --section-tagline-transform: uppercase;
+
+  /* 12. Section title marjin və rəngi */
+  --section-title-margin: 0;
+  --section-title-color: var(--color-black);
+}
+
+/* 1 & 5. Base Styles */
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  color: var(--text-color);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+}
+
+/* 2, 9 & 13. Links & Pseudo-classes */
+a[href] {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+a[href]:visited {
+  font-style: italic;
+}
+
+a[href]:hover {
+  text-decoration: underline;
+}
+
+a[href]:active {
+  background-color: var(--color-light-grey);
+}
+
+/* 2. Helpers */
+.visually-hidden {
+  display: none;
+}
+
+/* 2. Card Category */
+.card-category {
+  color: var(--color-primary);
+}
+
+/* 10. Section Header */
+.section-header {
+  text-align: var(--section-header-align);
+}
+
+/* 12. Section Title */
+.section-title {
+  font-family: var(--font-family-title);
+  font-size: var(--font-size-xx-large);
+  font-weight: var(--font-weight-bold);
+  margin: var(--section-title-margin);
+  color: var(--section-title-color);
+}
+
+/* 2 & 11. Section Tagline */
+.section-tagline {
+  color: var(--color-primary);
+  font-family: var(--font-family-title);
+  text-transform: var(--section-tagline-transform);
+  font-weight: var(--font-weight-bold);
+}
+
+/* 4 & 6. Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-bold);
+}
