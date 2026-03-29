@@ -1,0 +1,217 @@
+/* 7. Google Fonts inteqrasiyası */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@700&display=swap');
+
+/* Custom Properties (Dəyişənlər) */
+:root {
+  --color-primary: #d73953;
+  --color-black: #090909;
+  --color-white: #ffffff;
+  --color-light-grey: #f3f3f3;
+  --color-dark-grey: #353535;
+  --text-color: var(--color-black);
+
+  --font-family-base: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family-title: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --font-size-small: 1.2rem;
+  --font-size-medium: 1.6rem;
+  --font-size-large: 1.8rem;
+  --font-size-x-large: 2.3rem;
+  --font-size-xx-large: 4.8rem;
+
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  --line-height-small: 1.2;
+  --line-height-base: 1.5;
+  --line-height-big: 1.8;
+
+  --section-header-align: center;
+  --section-tagline-transform: uppercase;
+  --section-tagline-margin: 0;
+  --section-title-margin: 0;
+  --section-title-color: var(--color-black);
+
+  --section-padding: 5rem 0;
+  --section-header-padding: 0 0 3rem;
+  --section-body-padding: 0 0 3rem;
+  --section-footer-padding: 3rem 0 0;
+  --section-footer-align: center;
+  --footer-padding: 5rem 0 1rem;
+
+  --nav-item-font-family: var(--font-family-title);
+  --nav-item-font-weight: var(--font-weight-bold);
+  --nav-item-font-size: var(--font-size-medium);
+  --nav-item-letter-spacing: 0.04rem;
+  --nav-item-display: inline-block;
+  --nav-item-margin: 0 0 3rem 0;
+  --nav-item-link-hover: var(--color-white);
+
+  --button-display: inline-block;
+  --button-padding: 1.5rem 3rem;
+  --button-border: 0.2rem solid var(--color-primary);
+  --button-color: var(--color-black);
+  --button-text-decoration: none;
+  --button-font-size: var(--font-size-large);
+  --button-hover-color: var(--color-white);
+  --button-hover-text-decoration: none;
+  --button-hover-background: var(--color-primary);
+
+  --header-padding: 4rem 0 0;
+  --header-logo-position: relative;
+  --header-logo-link-display: inline-block;
+  --header-logo-link-position: absolute;
+  --header-logo-link-top: -1rem;
+  --header-logo-link-left: 0;
+}
+
+/* 15. Universal box-sizing */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+body {
+  color: var(--text-color);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+}
+
+/* 25. Button Class */
+.button {
+  display: var(--button-display);
+  padding: var(--button-padding);
+  border: var(--button-border);
+  font-size: var(--button-font-size);
+  color: var(--button-color);
+  text-decoration: var(--button-text-decoration);
+}
+.button:hover {
+  color: var(--button-hover-color);
+  background-color: var(--button-hover-background);
+}
+
+/* 28. Header & Logo */
+.header { padding: var(--header-padding); }
+.header-logo { position: var(--header-logo-position); }
+.header-logo a {
+  display: var(--header-logo-link-display);
+  position: var(--header-logo-link-position);
+  top: var(--header-logo-link-top);
+  left: var(--header-logo-link-left);
+}
+
+/* Layout & Sections */
+.container { width: 960px; margin-left: auto; margin-right: auto; }
+.section { padding: var(--section-padding); }
+.section-header { text-align: var(--section-header-align); padding: var(--section-header-padding); }
+.section-title { font-family: var(--font-family-title); font-size: var(--font-size-xx-large); margin: var(--section-title-margin); color: var(--section-title-color); }
+.section-tagline { color: var(--color-primary); font-family: var(--font-family-title); text-transform: var(--section-tagline-transform); margin: var(--section-tagline-margin); }
+
+/* 27. Hero Section */
+.section-hero { background-size: 90rem auto; }
+.section-hero .section-title { margin-bottom: 5rem; }
+.section-hero .section-inner { padding: 10rem 40rem 2rem 0; }
+
+/* 18 & 29. Navbar */
+.navbar-menu { float: right; }
+nav { list-style: none; padding: 0; margin: 0; text-align: center; }
+nav .nav-item { display: var(--nav-item-display); margin: var(--nav-item-margin); }
+nav .nav-link { display: block; padding: 0.5rem 1rem; position: relative; }
+nav .nav-link:hover { color: var(--nav-item-link-hover); }
+nav .nav-link::before { content: ""; position: absolute; top: 0; left: 0; background-color: var(--color-white); width: 0; height: 0.2rem; }
+nav .nav-item:hover .nav-link::before { background-color: var(--color-primary); width: 100%; }
+
+/* 30. Card Work Styling */
+.card-work .card-outer {
+  position: relative; /* */
+  overflow: hidden;   /* */
+}
+
+.card-work .card-image img {
+  height: 30rem;      /* */
+  width: 100%;        /* */
+  object-fit: cover;  /* */
+  vertical-align: bottom; /* */
+}
+
+.card-work .card-inner {
+  position: absolute; /* */
+  top: -0.1rem;       /* */
+  left: -0.1rem;      /* */
+  right: -0.1rem;     /* */
+  z-index: 1;         /* */
+}
+
+.card-work:hover .card-inner {
+  background-color: rgba(0, 0, 0, 0.7); /* */
+}
+
+.card-work .card-title {
+  text-align: center; /* */
+  margin: 0;          /* */
+  opacity: 0;         /* Lowest value */
+  height: 100%;       /* */
+  position: relative; /* */
+}
+
+.card-work .card-title a {
+  display: block;     /* */
+  text-decoration: none; /* */
+  padding-top: 45%;   /* */
+}
+
+.card-work .card-title a::after {
+  content: "";        /* */
+  position: absolute; /* */
+  top: 0; right: 0; bottom: 0; left: 0; /* */
+}
+
+.card-work:hover .card-title {
+  opacity: 1;         /* */
+}
+
+/* 19-21. Grid System */
+.row::after { content: ""; display: table; clear: both; }
+[class*='col-'] { float: left; padding: 0.5rem; }
+.col-1-3 { width: 33.33%; }
+.col-1-2 { width: 50%; }
+
+/* Dark Theme */
+[data-section-theme="dark"] {
+  --text-color: var(--color-white);
+  --section-title-color: var(--color-white);
+  --button-color: var(--color-white);
+  background-color: var(--color-black);
+}
+
+/* Footer */
+.footer { padding: var(--footer-padding); }
+.footer-copyright { margin: 0; font-size: var(--font-size-small); color: var(--text-color); }
+.footer ul { text-align: right; }
+.social-link { display: block; }
+.social-link svg { fill: var(--text-color); }
+/* 31. Add quotes decoration on testimonials */
+
+/* Target the card-quote that is inside the card-testimonial */
+.card-testimonial .card-quote {
+  position: relative; /* Style it so that the position is relative to its parent */
+}
+
+/* Target the before pseudo-element of card-quote that is inside the card-testimonial */
+.card-testimonial .card-quote::before {
+  content: "\201C"; /* The content should be set to the value \201C */
+  position: absolute; /* Absolutely position the selected elements */
+  top: -4.5rem; /* The vertical position of the selected elements should be -4.5rem */
+  left: -1rem; /* The horizontal position from the left should be -1rem */
+  color: #efeded; /* The foreground color of the selected elements should be set to #efeded */
+  font-size: 10rem; /* The size of fonts should be 10rem */
+  z-index: -1; /* The z-index should be set to -1 */
+}
