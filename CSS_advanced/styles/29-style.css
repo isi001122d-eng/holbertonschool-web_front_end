@@ -1,8 +1,9 @@
-/* 7. Google Fonts inteqrasiyası */
+/* 7. Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@700&display=swap');
 
-/* Custom Properties (Dəyişənlər) */
+/* 3-29. Custom Properties (Dəyişənlər) */
 :root {
+  /* Rənglər */
   --color-primary: #d73953;
   --color-black: #090909;
   --color-white: #ffffff;
@@ -10,6 +11,7 @@
   --color-dark-grey: #353535;
   --text-color: var(--color-black);
 
+  /* Şriftlər */
   --font-family-base: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-family-title: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -26,6 +28,7 @@
   --line-height-base: 1.5;
   --line-height-big: 1.8;
 
+  /* Bölmələr */
   --section-header-align: center;
   --section-tagline-transform: uppercase;
   --section-tagline-margin: 0;
@@ -39,15 +42,17 @@
   --section-footer-align: center;
   --footer-padding: 5rem 0 1rem;
 
+  /* 18 & 29. Navbar Dəyişənləri */
   --nav-item-font-family: var(--font-family-title);
   --nav-item-font-weight: var(--font-weight-bold);
   --nav-item-font-size: var(--font-size-medium);
   --nav-item-letter-spacing: 0.04rem;
   --nav-item-display: inline-block;
   --nav-item-margin: 0 0 3rem 0;
-  /* 29. Hover rəngini ağ rəngə dəyişirik */
+  /* 29. Hover rəngi mütləq ağ (white) olmalıdır */
   --nav-item-link-hover: var(--color-white);
 
+  /* Düymə */
   --button-display: inline-block;
   --button-padding: 1.5rem 3rem;
   --button-border: 0.2rem solid var(--color-primary);
@@ -58,6 +63,7 @@
   --button-hover-text-decoration: none;
   --button-hover-background: var(--color-primary);
 
+  /* Header & Logo */
   --header-padding: 4rem 0 0;
   --header-logo-position: relative;
   --header-logo-link-display: inline-block;
@@ -85,7 +91,7 @@ body {
   line-height: var(--line-height-base);
 }
 
-/* Links */
+/* Links & Transitions */
 a[href] {
   color: var(--text-color);
   text-decoration: none;
@@ -109,9 +115,13 @@ a[href]:active { background-color: var(--color-light-grey); }
   background-color: var(--button-hover-background);
 }
 
-/* 28. Header & Logo Selectors */
-.header { padding: var(--header-padding); }
-.header-logo { position: var(--header-logo-position); }
+/* 28. Header & Logo */
+.header {
+  padding: var(--header-padding);
+}
+.header-logo {
+  position: var(--header-logo-position);
+}
 .header-logo a {
   display: var(--header-logo-link-display);
   position: var(--header-logo-link-position);
@@ -119,48 +129,18 @@ a[href]:active { background-color: var(--color-light-grey); }
   left: var(--header-logo-link-left);
 }
 
-/* Helpers & Container */
-.visually-hidden { display: none; }
-.card-category { color: var(--color-primary); }
-.container { width: 960px; margin-left: auto; margin-right: auto; }
-
-/* Section Layout */
-.section { padding: var(--section-padding); }
-.section-header { text-align: var(--section-header-align); padding: var(--section-header-padding); }
-
-.section-title {
-  font-family: var(--font-family-title);
-  font-size: var(--font-size-xx-large);
-  font-weight: var(--font-weight-bold);
-  margin: var(--section-title-margin);
-  color: var(--section-title-color);
+/* 18 & 29. Navbar Styling */
+.navbar-menu {
+  float: right;
 }
 
-.section-tagline {
-  color: var(--color-primary);
-  font-family: var(--font-family-title);
-  text-transform: var(--section-tagline-transform);
-  font-weight: var(--font-weight-bold);
-  margin: var(--section-tagline-margin);
+nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
 }
 
-.section-body { padding: var(--section-body-padding); }
-.section-footer { padding: var(--section-footer-padding); text-align: var(--section-footer-align); }
-
-/* 27. Hero Section */
-.section-hero { background-size: 90rem auto; }
-.section-hero .section-title { margin-bottom: 5rem; }
-.section-hero .section-inner { padding: 10rem 40rem 2rem 0; }
-
-/* Grid System */
-.row::after { content: ""; display: table; clear: both; }
-[class*='col-'] { float: left; padding: 0.5rem; }
-.col-1-3 { width: 33.33%; }
-.col-1-2 { width: 50%; }
-
-/* 18 & 29. Navbar */
-.navbar-menu { float: right; }
-nav { list-style: none; padding: 0; margin: 0; text-align: center; }
 nav .nav-item {
   font-family: var(--nav-item-font-family);
   font-weight: var(--nav-item-font-weight);
@@ -169,14 +149,14 @@ nav .nav-item {
   display: var(--nav-item-display);
   margin: var(--nav-item-margin);
 }
-nav .nav-link { 
-  display: block; 
-  padding: 0.5rem 1rem; 
-  position: relative; /* Before psevdo-elementi üçün kontekst */
-}
-nav .nav-link:hover { color: var(--nav-item-link-hover); }
 
-/* 29. Nav-link ::before psevdo-elementi */
+nav .nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  position: relative; /* 29. Psevdo-element üçün vacibdir */
+}
+
+/* 29. Nav-link ::before (Xəttin ilkin vəziyyəti) */
 nav .nav-link::before {
   content: "";
   position: absolute;
@@ -184,16 +164,36 @@ nav .nav-link::before {
   left: 0;
   background-color: var(--color-white);
   width: 0;
-  height: 0.2rem; /* 20% of root element value: 10px * 0.2 = 2px */
+  height: 0.2rem; /* 20% of root (10px * 0.2 = 2px) */
 }
 
-/* 29. Nav-item hover olduqda ::before dəyişsin */
+/* 29. Nav-link Hover Effect */
+nav .nav-link:hover {
+  color: var(--nav-item-link-hover);
+}
+
 nav .nav-item:hover .nav-link::before {
   background-color: var(--color-primary);
   width: 100%;
 }
 
-/* Themes & Dark Mode */
+/* Helpers & Grid */
+.visually-hidden { display: none; }
+.card-category { color: var(--color-primary); }
+.container { width: 960px; margin-left: auto; margin-right: auto; }
+
+.row::after { content: ""; display: table; clear: both; }
+[class*='col-'] { float: left; padding: 0.5rem; }
+.col-1-3 { width: 33.33%; }
+.col-1-2 { width: 50%; }
+
+/* Section Layout */
+.section { padding: var(--section-padding); }
+.section-header { text-align: var(--section-header-align); padding: var(--section-header-padding); }
+.section-title { font-family: var(--font-family-title); font-size: var(--font-size-xx-large); margin: var(--section-title-margin); color: var(--section-title-color); }
+.section-tagline { color: var(--color-primary); font-family: var(--font-family-title); text-transform: var(--section-tagline-transform); margin: var(--section-tagline-margin); }
+
+/* Dark Theme */
 [data-section-theme="dark"] {
   --text-color: var(--color-white);
   --section-title-color: var(--color-white);
@@ -202,20 +202,8 @@ nav .nav-item:hover .nav-link::before {
 }
 
 /* Card Styles */
-.card-services a {
-  display: block;
-  padding: 2rem;
-  background-color: var(--color-light-grey);
-}
-.card-services a:hover {
-  color: var(--color-white);
-  background-color: var(--color-primary);
-  text-decoration: none;
-}
-
-.card-testimonial { text-align: center; }
-.card-testimonial .card-avatar { border-radius: 50%; width: 10rem; height: 10rem; }
-.card-testimonial .card-quote cite { display: block; padding-top: 1rem; color: var(--color-primary); }
+.card-services a { display: block; padding: 2rem; background-color: var(--color-light-grey); }
+.card-services a:hover { color: var(--color-white); background-color: var(--color-primary); text-decoration: none; }
 
 /* Footer */
 .footer { padding: var(--footer-padding); }
