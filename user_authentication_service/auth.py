@@ -31,12 +31,11 @@ class Auth:
         try:
             # 1. İstifadəçinin mövcudluğunu yoxlayırıq
             self._db.find_user_by(email=email)
-            # Əgər bura keçə bilsə, deməli istifadəçi artıq var -> ValueError fırladırıq
+            # Əgər istifadəçi tapılarsa, ValueError fırladırıq
             raise ValueError("User {} already exists".format(email))
         except NoResultFound:
-            # 2. İstifadəçi tapılmadıqda (NoResultFound), qeydiyyatı başladırıq
+            # 2. Tapılmadıqda parolu heşləyirik
             hashed_pw_bytes = _hash_password(password)
-            # Baytı string-ə çeviririk ki, VARCHAR sütununa düzgün otursun
             hashed_pw_str = hashed_pw_bytes.decode('utf-8')
 
             # 3. Bazaya əlavə edirik
