@@ -55,3 +55,17 @@ class DB:
             raise NoResultFound
 
         return user
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """ Updates a user's attributes in the database
+        """
+        # 1. İstifadəçini id-sinə görə tapırıq
+        user = self.find_user_by(id=user_id)
+
+        # 2. Arqumentləri yoxlayırıq və atributları mənimsədirik
+        for key, value in kwargs.items():
+            if not hasattr(user, key):
+                raise ValueError
+            setattr(user, key, value)
+
+        # 3. Dəyişiklikləri bazaya qeyd edirik
+        self._session.commit()
