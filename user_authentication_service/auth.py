@@ -24,9 +24,19 @@ class Auth:
         """Initialize a new Auth instance with a private DB session
         """
         self._db = DB()
-
+    
     def register_user(self, email: str, password: str):
         """Registers a new user if they don't already exist
+        """
+        try:
+            self._db.find_user_by(email=email)
+            raise ValueError("User {} already exists".format(email))
+        except NoResultFound:
+            hashed_password = _hash_password(password).decode('utf-8')
+            return self._db.add_user(email, hashed_password)
+
+    """def register_user(self, email: str, password: str):
+        """'''Registers a new user if they don't already exist
         """
         try:
             # 1. İstifadəçinin mövcudluğunu yoxlayırıq
