@@ -5,6 +5,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
+from sqlalchemy.exc import InvalidRequestError      # Səhv sütun arqumentləri üçün
+from sqlalchemy.orm.exc import NoResultFound        # Tapılmayan nəticələr üçün
 
 from user import Base, User
 
@@ -33,14 +35,23 @@ class DB:
     def add_user(self, email: str, hashed_password: str) -> User:
         """Creates and saves a new user to the database
         """
-        # Yeni User obyekti yaradırıq
         new_user = User(email=email, hashed_password=hashed_password)
-
-        # Sessiyaya əlavə edib bazaya yazırıq
         self._session.add(new_user)
         self._session.commit()
-
-        # Obyektin id və digər məlumatlarının tam oturması üçün refresh edirik
         self._session.refresh(new_user)
-
         return new_user
+
+    def find_user_by(self, **kwargs) -> User:
+        """Finds the first user filtered by arbitrary keyword arguments
+        """
+        try:
+            # Səhv arqument ötürüləndə InvalidRequestError tutmaq üçün try-except qururuq
+            user = self._session.query(User).filter_by(**kwargs).first()
+        except InvalidRequestError:
+            raise InvalidRequestError
+
+        # Əgər filtrə uyğun heç bir istifadəçi tapılmasa
+        if user is None:
+            raise NoResultFound
+
+        return user
